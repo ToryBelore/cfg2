@@ -93,11 +93,11 @@ def generate_mermaid(filename):
     """
     Создать Mermaid-файл для графа зависимостей.
     """
-    def recursive_write(tree):
+    def recursive_write(tree, id='1'):
         label = tree['label']
         children = tree['children']
-        nodes = [f'{label} --> {child["label"]}' for child in children]
-        return '\n'.join(nodes) + '\n'.join([recursive_write(child) for child in children])
+        nodes = [f'id{id}[{label}] --> id{id}{int(id)*10+i}[{child["label"]}]\n' for i, child in enumerate(children, 1)]
+        return '\n'.join(nodes) + '\n'.join([recursive_write(child, f'{id}{int(id)*10+i}') for i, child in enumerate(children, 1)])
 
     last_commit = get_last_commit()
     tree = parse_object(last_commit)
