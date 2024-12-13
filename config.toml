@@ -1,0 +1,5 @@
+[config]
+visualizer_path = "C:/Users/artem/AppData/Roaming/npm/mmdc.cmd"
+repo_path = "C:/Users/artem/Documents/cfg2"
+target_file_hash = "2e31113343aaa8e5e3d6d1217190eb076fc05cc8"
+branch = "master"
